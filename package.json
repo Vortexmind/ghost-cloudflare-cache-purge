@@ -1,7 +1,7 @@
 {
   "name": "cloudflare-ghost-cache-purge",
   "version": "1.0.0",
-  "description": "Cloudflare worker script for cache purging on post changes / updates",
+  "description": "A Cloudflare worker script which triggers Cloudflare cache purges initiated by a Ghost blog webhook",
   "main": "index.js",
   "scripts": {
     "lint": "eslint --plugin markdown --ext js,md .",
