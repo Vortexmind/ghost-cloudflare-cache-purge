@@ -35,8 +35,7 @@ async function purgeCache() {
   const apiUrl = "https://api.cloudflare.com/client/v4/zones/"+CF_ZONE_ID+"/purge_cache"
 
   const apiPayload = {
-    "prefixes" : ["www.paolotagliaferri.com/about-paolo-tagliaferri/"]
-    // "purge_everything":true
+     "purge_everything":true
   }
 
   const init = {
