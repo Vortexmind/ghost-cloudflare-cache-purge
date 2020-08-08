@@ -12,6 +12,16 @@ function unauthorizedResponse(body) {
   )
 }
 
+function generateSimpleResponse(httpCode, strMessage){
+  return new Response (
+    JSON.stringify({"result": strMessage}), {
+      status: httpCode,
+      headers : { 
+        'Content-Type' : 'application/json'
+      }
+  })
+}
+
 function check(name,pass) {
   var valid = true
  
@@ -56,21 +66,9 @@ async function handleRequest(request) {
     const responseData = await purgeCache()
 
     if (responseData.success){ 
-      return new Response (
-        JSON.stringify({"result": "OK"}), {
-          status: 200,
-          headers : { 
-            'Content-Type' : 'application/json'
-          }
-      })
+      return generateSimpleResponse (200,"OK")
     } else  {
-      return new Response (
-        JSON.stringify({"result": "FAILED"}), {
-          status: 500, 
-          headers : { 
-            'content-type' : 'application/json'
-          }
-      })
+       return generateSimpleResponse (500,"FAILED")
     }
 
   }
