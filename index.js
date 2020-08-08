@@ -1,5 +1,5 @@
-import compare from 'tsscmp'
 import auth from 'basic-auth'
+import compare from 'tsscmp'
 
 function unauthorizedResponse(body) {
   return new Response(
@@ -26,7 +26,7 @@ async function purgeCache() {
 
   const apiPayload = {
     "prefixes" : ["www.paolotagliaferri.com/about-paolo-tagliaferri/"]
-    //"purge_everything":true
+    // "purge_everything":true
   }
 
   const init = {
