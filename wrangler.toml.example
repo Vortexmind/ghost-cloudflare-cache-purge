@@ -1,0 +1,6 @@
+name = "ghost-cloudflare-cache-purge"
+type = "webpack"
+account_id = "<YOUR CLOUDFLARE ACCOUNT ID>"
+workers_dev = true
+zone_id = "<YOUR CLOUDFLARE ZONE ID>"
+vars = { WEBHOOK_USER = "<YOUR GHOST WEBHOOK USER ACCOUNT ID>", CF_ZONE_ID = "<YOUR CLOUDFLARE ZONE ID>"}
