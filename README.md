@@ -26,7 +26,6 @@ via wrangler.
 2. Add a `wrangler.toml` file to your folder `cp wrangler.toml.example wrangler.toml`
 3. Edit the file, adding your Cloudflare Account Id, Zone ID and the `WEBHOOK_USER`, `CF_ZONE_ID` values
 4. Test your changes
-5. Use `wrangler secret put` to configure two secrets for your worker:
-** `wrangler secret put CF_AUTH_TOKEN` with a Cloudflare API token with the Cache Purge permission for the intended zone
-** `wrangler secret put WEBHOOK_PASSWORD` with the password that will be associated to the above `WEBHOOK_USER`
-6. Once happy, run `wrangler publish` to deploy the worker and route to your
+5. Use `wrangler secret put` to configure two secrets for your worker: `wrangler secret put CF_AUTH_TOKEN` with a Cloudflare API token with the Cache Purge permission for the intended zone. `wrangler secret put WEBHOOK_PASSWORD` with the password that will be associated to the above `WEBHOOK_USER`
+6. Once happy, run `wrangler publish` to deploy the worker 
+
