@@ -15,6 +15,7 @@
   "author": "Paolo Tagliaferri <me@paolotagliaferri.com>",
   "license": "MIT",
   "dependencies": {
+    "basic-auth": "^2.0.1",
     "tsscmp": "^1.0.6"
   },
   "devDependencies": {

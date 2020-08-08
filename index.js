@@ -1,12 +1,5 @@
 import compare from 'tsscmp'
-
-// HTTP Basic Auth logic from https://github.com/jshttp/basic-auth/blob/master/index.js
-class Credentials {
-  constructor(name, pass) {
-    this.name = name
-    this.pass = pass
-  }
-}
+import auth from 'basic-auth'
 
 function unauthorizedResponse(body) {
   return new Response(
@@ -28,43 +21,12 @@ function check(name,pass) {
   return valid
 }
 
-function parseAuthHeader(header) {
-
-  var CREDENTIALS_REGEXP = /^ *(?:[Bb][Aa][Ss][Ii][Cc]) +([A-Za-z0-9._~+/-]+=*) *$/
-  var USER_PASS_REGEXP = /^([^:]*):(.*)$/
-
-  if (!header) {
-    return undefined
-  }
-
-  if (typeof header !== 'string') {
-    return undefined
-  }
-
-  var match = CREDENTIALS_REGEXP.exec(header)
-
-  if (!match) {
-    return undefined
-  }
-
-  try {
-    var userPass = USER_PASS_REGEXP.exec(atob(match[1]))
-  } catch (error) {
-    return undefined
-  }
-
-  if (!userPass) {
-    return undefined
-  }
-  return new Credentials(userPass[1], userPass[2])
-}
-
-
 async function purgeCache() { 
   const apiUrl = "https://api.cloudflare.com/client/v4/zones/"+CF_ZONE_ID+"/purge_cache"
 
   const apiPayload = {
-    "purge_everything":true
+    "prefixes" : ["www.paolotagliaferri.com/about-paolo-tagliaferri/"]
+    //"purge_everything":true
   }
 
   const init = {
@@ -86,7 +48,7 @@ addEventListener('fetch', event => {
 
 async function handleRequest(request) {
 
-  var credentials = parseAuthHeader(request.headers.get("Authorization"))
+  var credentials = auth.parse(request.headers.get("Authorization"))
 
   if ( !credentials || !check(credentials.name, credentials.pass) ) {
     return unauthorizedResponse("Unauthorized")
