@@ -11,6 +11,8 @@ What it does:
 - If valid, it issues a [Cloudflare API](https://api.cloudflare.com/) call for a specific zone, and purges everything.
 -- If the call is successful, it returns an `HTTP 200` response, otherwise it returns an `HTTP 500` error.
 
+You can read full setup instructions [on the related blog article I wrote](https://www.paolotagliaferri.com/cloudflare-cache-purge-with-ghost-webhook/).
+
 #### Wrangler
 
 For ease of use, this script should be managed using Wrangler.
