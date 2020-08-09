@@ -6,10 +6,10 @@ This [Cloudflare Worker](https://workers.cloudflare.com/) can be used to execute
 
 What it does:
 - It accepts a request including an HTTP Basic Authentication header. 
--- If the credentials are invalid, an `HTTP 401` response is returned.
+- If the credentials are invalid, an `HTTP 401` response is returned.
 - It decodes the header and compares it with pre-configured credentials.
 - If valid, it issues a [Cloudflare API](https://api.cloudflare.com/) call for a specific zone, and purges everything.
--- If the call is successful, it returns an `HTTP 200` response, otherwise it returns an `HTTP 500` error.
+- If the call is successful, it returns an `HTTP 200` response, otherwise it returns an `HTTP 500` error.
 
 You can read full setup instructions [on the related blog article I wrote](https://www.paolotagliaferri.com/cloudflare-cache-purge-with-ghost-webhook/).
 
