@@ -4,9 +4,8 @@
   "description": "A Cloudflare worker script which triggers Cloudflare cache purges initiated by a Ghost blog webhook",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint --plugin markdown --ext js,md .",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write '**/*.{js,css,json,md}'"
+    "lint": "eslint --fix . && echo 'Lint complete.'",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "cloudflare",
@@ -20,8 +19,10 @@
     "tsscmp": "^1.0.6"
   },
   "devDependencies": {
-    "eslint": "7.6.0",
-    "eslint-plugin-markdown": "1.0.2",
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-markdown": "^1.0.2",
+    "eslint-plugin-prettier": "^3.1.4",
     "prettier": "^2.0.5"
   }
 }

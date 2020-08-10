@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import auth from 'basic-auth'
 import compare from 'tsscmp'
 
@@ -5,17 +6,17 @@ function unauthorizedResponse(body) {
   return new Response(body, {
     status: 401,
     headers: {
-      'WWW-Authenticate': 'Basic realm="User Visible Realm"'
-    }
+      'WWW-Authenticate': 'Basic realm="User Visible Realm"',
+    },
   })
 }
 
 function generateSimpleResponse(httpCode, strMessage) {
-  return new Response(JSON.stringify({result: strMessage}), {
+  return new Response(JSON.stringify({ result: strMessage }), {
     status: httpCode,
     headers: {
-      'Content-Type': 'application/json'
-    }
+      'Content-Type': 'application/json',
+    },
   })
 }
 
@@ -33,22 +34,22 @@ async function purgeCache() {
     'https://api.cloudflare.com/client/v4/zones/' + CF_ZONE_ID + '/purge_cache'
 
   const apiPayload = {
-    purge_everything: true
+    purge_everything: true,
   }
 
   const init = {
     body: JSON.stringify(apiPayload),
     method: 'POST',
     headers: {
-      Authorization: 'Bearer ' + CF_AUTH_TOKEN
-    }
+      Authorization: 'Bearer ' + CF_AUTH_TOKEN,
+    },
   }
 
   const response = await fetch(apiUrl, init)
   return await response.json()
 }
 
-addEventListener('fetch', event => {
+addEventListener('fetch', (event) => {
   event.respondWith(handleRequest(event.request))
 })
 
