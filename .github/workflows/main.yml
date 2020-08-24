@@ -1,0 +1,22 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - uses: actions/checkout@v2
+      - name: Pre-Publish
+        run: 'echo "$TOML_CONTENT" > wrangler.toml'
+        shell: bash
+        env:
+          TOML_CONTENT: ${{secrets.TOML_CONTENT}}
+      - name: Publish
+        uses: cloudflare/wrangler-action@1.2.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
