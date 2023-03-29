@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 import auth from 'basic-auth'
-import timingSafeEqual from 'compare-timing-safe'
 
 function unauthorizedResponse(body) {
   return new Response(body, {
@@ -20,11 +19,26 @@ function generateSimpleResponse(httpCode, strMessage) {
   })
 }
 
+function str2ab(str) {
+  const buffer = new ArrayBuffer(str.length * 2)
+  const view = new Uint16Array(buffer)
+  for (var i = 0, strLen = str.length; i < strLen; i++)
+    view[i] = str.charCodeAt(i)
+  return buffer
+}
+
 function check(name, pass) {
   var valid = true
 
-  valid = timingSafeEqual(name, WEBHOOK_USER) && valid
-  valid = timingSafeEqual(pass, WEBHOOK_PASSWORD) && valid
+  try {
+    valid =
+      crypto.subtle.timingSafeEqual(str2ab(name), str2ab(WEBHOOK_USER)) && valid
+    valid =
+      crypto.subtle.timingSafeEqual(str2ab(pass), str2ab(WEBHOOK_PASSWORD)) &&
+      valid
+  } catch (e) {
+    valid = false
+  }
 
   return valid
 }
