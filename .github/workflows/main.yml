@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Pre-Publish
-        run: 'echo "$TOML_CONTENT" > wrangler.toml'
+        run: 'echo "$TOML_CONTENT" > wrangler.toml && npm install'
         shell: bash
         env:
           TOML_CONTENT: ${{secrets.TOML_CONTENT}}
