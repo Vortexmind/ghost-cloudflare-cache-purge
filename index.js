@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import auth from 'basic-auth'
-import compare from 'tsscmp'
+import timingSafeEqual from 'compare-timing-safe'
 
 function unauthorizedResponse(body) {
   return new Response(body, {
@@ -23,8 +23,8 @@ function generateSimpleResponse(httpCode, strMessage) {
 function check(name, pass) {
   var valid = true
 
-  valid = compare(name, WEBHOOK_USER) && valid
-  valid = compare(pass, WEBHOOK_PASSWORD) && valid
+  valid = timingSafeEqual(name, WEBHOOK_USER) && valid
+  valid = timingSafeEqual(pass, WEBHOOK_PASSWORD) && valid
 
   return valid
 }

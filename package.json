@@ -17,7 +17,7 @@
   "dependencies": {
     "basic-auth": "^2.0.1",
     "buffer": "^6.0.3",
-    "tsscmp": "^1.0.6"
+    "compare-timing-safe": "^2.1.1"
   },
   "devDependencies": {
     "eslint": "8.37.0",
