@@ -45,7 +45,7 @@ function check(name, pass) {
 
 async function purgeCache() {
   const apiUrl =
-    'https://api.cloudflare.com/client/v4/zones/f' + CF_ZONE_ID + '/purge_cache'
+    'https://api.cloudflare.com/client/v4/zones/' + CF_ZONE_ID + '/purge_cache'
 
   const apiPayload = {
     purge_everything: true,
