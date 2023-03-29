@@ -2,5 +2,6 @@ name = "ghost-cloudflare-cache-purge"
 account_id = "<YOUR CLOUDFLARE ACCOUNT ID>"
 workers_dev = true
 compatibility_date = "2023-03-29"
+node_compat = true
 main = "index.js"
 vars = { WEBHOOK_USER = "<YOUR GHOST WEBHOOK USER ACCOUNT ID>", CF_ZONE_ID = "<YOUR CLOUDFLARE ZONE ID>"}
