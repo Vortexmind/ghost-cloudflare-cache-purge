@@ -1,7 +1,5 @@
 # 👷‍♀️ `Cloudflare Cache Purger for Ghost Blog`
 
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/Vortexmind/ghost-cloudflare-cache-purge.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Vortexmind/ghost-cloudflare-cache-purge/alerts/) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Vortexmind/ghost-cloudflare-cache-purge.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Vortexmind/ghost-cloudflare-cache-purge/context:javascript)
-
 This [Cloudflare Worker](https://workers.cloudflare.com/) can be used to execute a cache purge on a given Cloudflare zone when invoked. It uses HTTP Basic Authentication to allow only authorized users. This is the only authentication scheme currently supported by [Ghost Webhooks](https://ghost.org/docs/api/v3/webhooks/). This can be used to automate cache purging on certain actions on Ghost, for example new post publishing.
 
 What it does:
