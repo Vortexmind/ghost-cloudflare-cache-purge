@@ -19,7 +19,7 @@
     "buffer": "^6.0.3"
   },
   "devDependencies": {
-    "eslint": "8.41.0",
+    "eslint": "8.57.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-markdown": "3.0.0",
     "eslint-plugin-prettier": "4.2.1",
