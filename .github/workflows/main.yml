@@ -17,6 +17,6 @@ jobs:
         env:
           TOML_CONTENT: ${{secrets.TOML_CONTENT}}
       - name: Publish
-        uses: cloudflare/wrangler-action@v3.13.1
+        uses: cloudflare/wrangler-action@v3.14.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
