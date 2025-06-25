@@ -23,6 +23,6 @@
     "eslint-config-prettier": "10.1.5",
     "eslint-plugin-markdown": "5.1.0",
     "eslint-plugin-prettier": "5.5.1",
-    "prettier": "3.6.0"
+    "prettier": "3.6.1"
   }
 }
